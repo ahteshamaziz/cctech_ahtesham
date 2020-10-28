@@ -1,0 +1,10 @@
+.maindiv{
+    
+    height: 100%;
+    width: 100%;
+    background-position: center center;
+    background-attachment: fixed;
+    background-color: #EEEEEE;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

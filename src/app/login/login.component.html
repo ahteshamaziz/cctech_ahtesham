@@ -1,0 +1,41 @@
+
+<div class="maindiv" style="background-image:url(assets/bg1.jpg);" >
+ 
+    <div class="container" >
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4" style="margin-top: 13%;">
+                <div class="card" style="width:100%">
+                    <div class="card-body">
+                        
+                      <div class="fadeIn first" style="text-align: center;">
+                        <img src="assets/p.jpg" style="width: 25%;border-radius: 60px;" id="icon" alt="User Icon" />
+                      </div>
+                  
+                    
+                      <form>
+                        <div class="form-group">
+                            <label for="usr">Username:</label>
+                            <input type="text"  [(ngModel)]="name" name="name"  class="form-control" id="usr">
+                          </div>
+                          <div class="form-group">
+                            <label for="pwd">Password:</label>
+                            <input type="password"  [(ngModel)]="password" name="password"  class="form-control" id="pwd">
+                          </div>
+                          <div style="text-align: center;">
+                            <button type="button" (click)="submit()" class="btn btn-info">Submit</button>
+                          </div>
+                      </form>
+                  
+                     
+                      <div id="formFooter" style="text-align: center;margin-top: 2%;">
+                        <a class="underlineHover" href="#">Forgot Password?</a>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+
+</div>
