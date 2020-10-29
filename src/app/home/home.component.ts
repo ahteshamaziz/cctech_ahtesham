@@ -34,8 +34,8 @@ export class HomeComponent implements OnInit {
         //console.log('json:uploaded:', item, status, response);
         alert('uploaded successfully');
         this.getimage();
-        (<HTMLInputElement>document.getElementById("upload")).style.display = "block"; 
-        (<HTMLInputElement>document.getElementById("uploadimg")).style.display = "none"; 
+        // (<HTMLInputElement>document.getElementById("upload")).style.display = "block"; 
+        // (<HTMLInputElement>document.getElementById("uploadimg")).style.display = "none"; 
 
      };
 

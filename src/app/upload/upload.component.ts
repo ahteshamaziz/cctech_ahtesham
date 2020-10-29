@@ -5,7 +5,7 @@ import {Router} from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 
 
-const URL1 = 'http://localhost:8080/images';
+const URL1 = 'http://3.91.64.118:8080/images';
 
 
 @Component({
@@ -23,9 +23,34 @@ export class UploadComponent implements OnInit {
     public uploader1: FileUploader = new FileUploader({url: URL1, itemAlias: 'image'});
 
      data:any;
+     name:string;
+
+     public imagePath;
+     imgURL: any;
+     public message: string;
+    
+     preview(files) {
+       if (files.length === 0)
+         return;
+    
+       var mimeType = files[0].type;
+       if (mimeType.match(/image\/*/) == null) {
+         this.message = "Only images are supported.";
+         return;
+       }
+    
+       var reader = new FileReader();
+       this.imagePath = files;
+       reader.readAsDataURL(files[0]); 
+       reader.onload = (_event) => { 
+         this.imgURL = reader.result; 
+       }
+     }
+     
 
   ngOnInit(): void {
-
+   
+        
 
 
     this.uploader1.onAfterAddingFile = (file) => { file.withCredentials = false; };
@@ -40,11 +65,26 @@ export class UploadComponent implements OnInit {
 
   addimage(){
     //alert(this.mapcid);
+         if(this.name == ""){
+           var name = "No Caption!";
+           this.uploader1.onBuildItemForm = (fileItem: any, form: any) => {
+            form.append('name', name);
+          };
+          this.uploader1.uploadAll();
     
+         }else{
+          var name = this.name;
+          this.uploader1.onBuildItemForm = (fileItem: any, form: any) => {
+           form.append('name',  name);
+         }
          this.uploader1.uploadAll();
+        }
+         
 
  
    }
+
+   
 
    
 

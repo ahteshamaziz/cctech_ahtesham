@@ -6,8 +6,15 @@
        <div class="row" style="width: 100%;text-align: center;">  
         <div class="col-sm-4"></div>
         <div class="col-sm-4">
-        <input type="file" name="image" ng2FileSelect [uploader]="uploader1" style="font-size:100%;margin-left: 36%;margin-top: 50%;"/>
-         <br>
+        <!-- <input type="file" name="image" ng2FileSelect [uploader]="uploader1" multiple accept="image/*" style="font-size:100%;margin-left: 36%;margin-top: 50%;"/> -->
+        
+        <span style="color:red;" *ngIf="message">{{message}}</span>
+        <input #file type="file" accept='image/*' (change)="preview(file.files)"  name="image" ng2FileSelect [uploader]="uploader1" style="margin-top: 50%;"/>
+        <img [src]="imgURL" height="200" *ngIf="imgURL">
+        
+        <br>
+        <input type="text" style="margin-top: 2%;"  [(ngModel)]="name" name="name"  class="form-control" id="name" placeholder="Caption">
+        <br>
         <button type="button" class="btn btn-light shadow p-2 mb-3 bg-white rounded" style="border-bottom: 3px solid #656565;width: 30%;margin-top: 10%;" (click)="addimage()">Submit</button>  
         </div>
         <div class="col-sm-4"></div>

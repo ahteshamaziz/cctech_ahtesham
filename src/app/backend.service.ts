@@ -16,7 +16,7 @@ export class BackendService {
     ) { }
 
      
-    api = "http://localhost:8080/";
+    api = "http://3.91.64.118:8080/";
 
 
     
