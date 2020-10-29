@@ -26,10 +26,11 @@
                             <button type="button" (click)="submit()" class="btn btn-info">Submit</button>
                           </div>
                       </form>
-                  
+                      
+                          <p style="color: red;">{{errormssg}}</p> 
                      
                       <div id="formFooter" style="text-align: center;margin-top: 2%;">
-                        <a class="underlineHover" href="#">Forgot Password?</a>
+                        <a class="underlineHover" (click)="reg()">Register?</a>
                       </div>
                     </div>
                   </div>

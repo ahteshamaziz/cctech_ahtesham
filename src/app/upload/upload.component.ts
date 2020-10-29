@@ -9,11 +9,11 @@ const URL1 = 'http://localhost:8080/images';
 
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-upload',
+  templateUrl: './upload.component.html',
+  styleUrls: ['./upload.component.css']
 })
-export class HomeComponent implements OnInit {
+export class UploadComponent implements OnInit {
 
   constructor(
       private backend:BackendService,
@@ -26,16 +26,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
-    
-    this.getimage();
+
 
     this.uploader1.onAfterAddingFile = (file) => { file.withCredentials = false; };
     this.uploader1.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
         //console.log('json:uploaded:', item, status, response);
         alert('uploaded successfully');
-        this.getimage();
-        (<HTMLInputElement>document.getElementById("upload")).style.display = "block"; 
-        (<HTMLInputElement>document.getElementById("uploadimg")).style.display = "none"; 
+       this.router.navigate(['welcome/home']);
 
      };
 
@@ -49,21 +46,7 @@ export class HomeComponent implements OnInit {
  
    }
 
-   getimage(){
-    this.backend.getimg().subscribe
-    (data=>
-      { 
-       
-        console.log(data);
-        this.data = data;
-
-      })
-   }
-
-
-   up(){
-    this.router.navigate(['welcome/upload']);
-   }
+   
 
 }
 

@@ -3,14 +3,20 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
+import { UploadComponent } from './upload/upload.component';
+
+import { WelcomeComponent } from './welcome/welcome.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 const routes: Routes = [
   {path:'',component: LoginComponent},
+  {path:'login',component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path:'home',component: HomeComponent,children:  [
-  //  {path: 'home/:username/:c', component: HomeComponent},
+  {path:'welcome',component: WelcomeComponent,children:  [
+    {path: 'home', component: HomeComponent},
+    {path: 'upload', component: UploadComponent}
   ]},
-  // {path:'**',component:NotFoundComponent}
+   {path:'**',component:NotfoundComponent}
 ]
 
 @NgModule({
